@@ -1,11 +1,13 @@
 package com.my.starwarsapp.data.api
 
 import com.my.starwarsapp.data.model.ListCharacter
+import com.my.starwarsapp.data.model.ListStarship
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 private const val BASE_URL="https://swapi.dev/api/"
 
@@ -18,11 +20,13 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface CharacterApiService {
+interface ApiService {
     @GET("people")
     suspend fun getCharacters(): ListCharacter
+    @GET("starships/?")
+    suspend fun getStarships(@Query("search") search:String): ListStarship
 }
 
-object CharacterApi {
-    val retrofitService: CharacterApiService by lazy { retrofit.create(CharacterApiService::class.java) }
+object Api {
+    val retrofitService: ApiService by lazy { retrofit.create(ApiService::class.java) }
 }

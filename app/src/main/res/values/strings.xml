@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">StarWarsApp</string>
+    <string name="characters_label">Characters</string>
+    <string name="starships_label">Starships</string>
+    <string name="search_button_text">search</string>
+    <string name="menu_label_characters">characters</string>
+    <string name="menu_label_starships">starships</string>
+    <string name="menu_label_new">new</string>
 </resources>
