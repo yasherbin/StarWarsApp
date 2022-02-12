@@ -6,40 +6,35 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.my.starwarsapp.databinding.FragmentCharactersBinding
+import com.my.starwarsapp.ui.base.BaseFragment
 import com.my.starwarsapp.ui.base.ViewModelFactory
 import com.my.starwarsapp.ui.characters.adapter.CharactersAdapter
 import com.my.starwarsapp.ui.characters.viewmodel.CharactersViewModel
 import com.my.starwarsapp.utils.Resource
 import com.my.starwarsapp.utils.Status
 
-class CharactersFragment : Fragment() {
-    private var _binding: FragmentCharactersBinding? = null
-    private val binding get() = _binding!!
+class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
     private lateinit var adapter: CharactersAdapter
     private lateinit var charactersViewModel: CharactersViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun initBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    )= FragmentCharactersBinding.inflate(inflater, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         charactersViewModel = ViewModelProviders.of(
             this,
             ViewModelFactory()
         ).get(CharactersViewModel::class.java)
 
-        _binding = FragmentCharactersBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         adapter = CharactersAdapter(arrayListOf())
         binding.recyclerView.addItemDecoration(
@@ -78,10 +73,5 @@ class CharactersFragment : Fragment() {
             addData(characters)
             notifyDataSetChanged()
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
