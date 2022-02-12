@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_characters"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/menu_label_characters" />
+
+    <item
+        android:id="@+id/navigation_starships"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/menu_label_starships" />
+
+    <item
+        android:id="@+id/navigation_new"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/menu_label_new" />
+
+</menu>

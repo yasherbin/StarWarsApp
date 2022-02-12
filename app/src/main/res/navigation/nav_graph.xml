@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/navigation_characters">
+
+    <fragment
+        android:id="@+id/navigation_characters"
+        android:name="com.my.starwarsapp.ui.characters.view.CharactersFragment"
+        android:label="@string/characters_label"
+        tools:layout="@layout/fragment_characters" />
+    <fragment
+        android:id="@+id/navigation_starships"
+        android:name="com.my.starwarsapp.ui.starships.view.StarshipsFragment"
+        android:label="@string/starships_label"
+        tools:layout="@layout/fragment_starships" />
+</navigation>
