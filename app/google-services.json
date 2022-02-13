@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "261324998579",
+    "project_id": "starwars-app-7359e",
+    "storage_bucket": "starwars-app-7359e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261324998579:android:dda60b9d853a7e2df2edc6",
+        "android_client_info": {
+          "package_name": "com.my.starwarsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261324998579-cvjiel285glq7sgshpqqdt61suehq5na.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnTVnx8i9c4EVcFsf0o78Ueg6pqNWHDOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261324998579-cvjiel285glq7sgshpqqdt61suehq5na.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
