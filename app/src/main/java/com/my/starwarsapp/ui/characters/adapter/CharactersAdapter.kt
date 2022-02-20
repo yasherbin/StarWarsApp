@@ -5,21 +5,26 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.my.starwarsapp.data.model.FavoriteCharacter
 import com.my.starwarsapp.databinding.ListItemCharacterBinding
 import java.util.*
-import kotlin.collections.ArrayList
 
 class CharactersAdapter(
-    private val characters: ArrayList<com.my.starwarsapp.data.model.Character>
+    private val characters: ArrayList<com.my.starwarsapp.data.model.Character>,
+    val onItemFavoriteClickListener: OnListItemClickListener
 ) : RecyclerView.Adapter<CharactersAdapter.DataViewHolder>(), Filterable {
 
     var charactersFilterList = ArrayList<com.my.starwarsapp.data.model.Character>()
 
-    class DataViewHolder(private val itemBinding: ListItemCharacterBinding) : RecyclerView.ViewHolder (itemBinding.root) {
+    inner class DataViewHolder(private val itemBinding: ListItemCharacterBinding) : RecyclerView.ViewHolder (itemBinding.root) {
         fun bind(character: com.my.starwarsapp.data.model.Character) {
             itemBinding.textViewName.text = character.name
             itemBinding.textViewGender.text = character.gender
             itemBinding.textViewBirthYear.text = character.birthYear
+            itemBinding.favButton.setOnClickListener{
+                val favoriteCharacter=FavoriteCharacter(0, character.name, character.gender, character.birthYear)
+                onItemFavoriteClickListener.onItemClick(favoriteCharacter)
+            }
         }
     }
 
@@ -43,8 +48,8 @@ class CharactersAdapter(
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
-                if (charSearch.isEmpty()) {
-                    charactersFilterList = characters
+                charactersFilterList = if (charSearch.isEmpty()) {
+                    characters
                 } else {
                     val resultList = ArrayList<com.my.starwarsapp.data.model.Character>()
                     for (row in characters) {
@@ -52,7 +57,7 @@ class CharactersAdapter(
                             resultList.add(row)
                         }
                     }
-                    charactersFilterList = resultList
+                    resultList
                 }
                 val filterResults = FilterResults()
                 filterResults.values = charactersFilterList
@@ -64,8 +69,10 @@ class CharactersAdapter(
                 charactersFilterList = results?.values as ArrayList<com.my.starwarsapp.data.model.Character>
                 notifyDataSetChanged()
             }
-
         }
     }
+}
 
+interface OnListItemClickListener {
+    fun onItemClick(character: FavoriteCharacter)
 }

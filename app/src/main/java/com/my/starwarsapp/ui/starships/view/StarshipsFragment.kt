@@ -44,16 +44,17 @@ class StarshipsFragment : BaseFragment<FragmentStarshipsBinding>() {
         binding.recyclerView.adapter = adapter
         binding.button.setOnClickListener {
             starshipsViewModel.getStarships(binding.search.text.toString()).observe(
-                viewLifecycleOwner, {
-                    when (it.status) {
-                        Status.SUCCESS -> {
-                            it.data?.let { starships -> renderList(starships) }
-                        }
-                        Status.ERROR -> {
-                            Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
-                        }
+                viewLifecycleOwner
+            ) {
+                when (it.status) {
+                    Status.SUCCESS -> {
+                        it.data?.let { starships -> renderList(starships) }
                     }
-                })
+                    Status.ERROR -> {
+                        Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
         }
     }
 

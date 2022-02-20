@@ -15,4 +15,9 @@
         android:name="com.my.starwarsapp.ui.starships.view.StarshipsFragment"
         android:label="@string/starships_label"
         tools:layout="@layout/fragment_starships" />
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.my.starwarsapp.ui.favorites.view.FavoritesFragment"
+        android:label="@string/favorites_label"
+        tools:layout="@layout/fragment_favorites" />
 </navigation>

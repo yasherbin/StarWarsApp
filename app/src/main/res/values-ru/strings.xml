@@ -6,5 +6,6 @@
     <string name="search_button_text">поиск</string>
     <string name="menu_label_characters">персонажи</string>
     <string name="menu_label_starships">звездные корабли</string>
-    <string name="menu_label_new">другое</string>
+    <string name="menu_label_new">избранные персонажи</string>
+    <string name="favorites_label">Избранные персонажи</string>
 </resources>

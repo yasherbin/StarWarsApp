@@ -6,29 +6,13 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:baselineAligned="true">
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textViewName"
-        style="@style/TextAppearance.AppCompat.Large"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/layout_margin"
-        tools:text="Name"
-        android:layout_weight="1"/>
-    <Button
-        android:id="@+id/fav_button"
-        android:layout_width="@dimen/favorites_button_size"
-        android:layout_height="@dimen/favorites_button_size"
-        android:layout_margin="@dimen/layout_margin"
-        android:background="@drawable/ic_baseline_star_24"
-
-        />
-    </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewName"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin"
+            tools:text="Name" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewGender"
